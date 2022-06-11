@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol Reusable: AnyObject { }
+public protocol Reusable: AnyObject { }
 
-extension Reusable where Self: UIView {
+public extension Reusable where Self: UIView {
     
     static var reuseIdentifier: String {
         return "\(self)"
@@ -19,7 +19,7 @@ extension Reusable where Self: UIView {
 // MARK: - NibLoadable
 protocol NibLoadable: AnyObject { }
 
-extension NibLoadable where Self: UIView {
+public extension NibLoadable where Self: UIView {
     
     static var nibName: String {
         return "\(self)"
@@ -34,7 +34,7 @@ extension NibLoadable where Self: UIView {
 // MARK: - UITableViewCell, UITableView
 extension UITableViewCell: Reusable { }
 
-extension UITableView {
+public extension UITableView {
     
     func dequeueReusableCell<T: UITableViewCell>(_ type: T.Type, forIndexPath indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
@@ -56,7 +56,7 @@ extension UITableView {
 // MARK: - UICollectionViewCell, UICollectionView
 extension UICollectionViewCell: Reusable { }
 
-extension UICollectionView {
+public extension UICollectionView {
     
     func dequeueReusableCell<T: UICollectionViewCell>(_ type: T.Type, forIndexPath indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
