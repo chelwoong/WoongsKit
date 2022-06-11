@@ -43,7 +43,7 @@ extension UITableView {
         return cell
     }
     
-    public func registerFromNib<T: UITableViewCell>(_ cellClass: T.Type) where T: NibLoadable {
+    func registerFromNib<T: UITableViewCell>(_ cellClass: T.Type) where T: NibLoadable {
         let nib = UINib(nibName: cellClass.nibName, bundle: nil)
         register(nib, forCellReuseIdentifier: T.reuseIdentifier)
     }
@@ -65,7 +65,7 @@ extension UICollectionView {
         return cell
     }
     
-    public func registerFromNib<T: UICollectionViewCell>(_ cellClass: T.Type) where T: NibLoadable {
+    func registerFromNib<T: UICollectionViewCell>(_ cellClass: T.Type) where T: NibLoadable {
         let nib = UINib(nibName: cellClass.nibName, bundle: nil)
         register(nib, forCellWithReuseIdentifier: T.reuseIdentifier)
     }
